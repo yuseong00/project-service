@@ -10,7 +10,7 @@ logging:
 
 spring:
   datasource:
-    url: jdbd:mysql://localhost:3306/board
+    url: jdbc:mysql://localhost:3306/board
     username: ys
     password: ys
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -26,5 +26,5 @@ spring:
   h2.console.enabled: true
 
 ---
-spring:
-  config.activate.on-profile: testdb
+#spring:
+#  config.activate.on-profile: testdb
