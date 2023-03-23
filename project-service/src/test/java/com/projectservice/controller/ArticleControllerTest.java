@@ -21,6 +21,8 @@ class ArticleControllerTest {
     public ArticleControllerTest(@Autowired MockMvc mvc) {
         this.mvc = mvc;
     }
+
+
     @Disabled("구현중")
     @DisplayName("[view][GET] 게시글 리스트 페이지")
     @Test
@@ -28,7 +30,8 @@ class ArticleControllerTest {
 
         mvc.perform(get("/articles"))
                 .andExpect(status().isOk())
-                .andExpect(content().contentType(MediaType.TEXT_HTML))
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
+                .andExpect(view().name("articles/index"))
                 .andExpect(model().attributeExists("articles"));
     }
 
