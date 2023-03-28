@@ -3,6 +3,7 @@ package com.projectservice.repository;
 import com.projectservice.domain.Article;
 import com.projectservice.domain.ArticleComment;
 import com.projectservice.domain.QArticle;
+import com.projectservice.repository.querydsl.ArticleRepositoryCustom;
 import com.querydsl.core.types.dsl.DateTimeExpression;
 import com.querydsl.core.types.dsl.StringExpression;
 import org.springframework.data.domain.Page;
@@ -18,6 +19,7 @@ import org.springframework.stereotype.Repository;
 @RepositoryRestResource
 public interface ArticleRepository extends
         JpaRepository<Article,Long>,
+        ArticleRepositoryCustom,
         QuerydslPredicateExecutor<Article>,
         QuerydslBinderCustomizer<QArticle>
 {
@@ -38,5 +40,6 @@ public interface ArticleRepository extends
     Page<Article> findByUserAccount_UserIdContaining(String userId, Pageable pageable);
     Page<Article> findByUserAccount_NicknameContaining(String nickname, Pageable pageable);
     Page<Article> findByHashtag(String hashtag, Pageable pageable);
+
 
 }
