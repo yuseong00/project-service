@@ -1,15 +1,15 @@
 package com.projectservice.dto.response;
 
+
+
 import com.projectservice.dto.ArticleWithCommentsDto;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 public record ArticleWithCommentsResponse(
-
         Long id,
         String title,
         String content,
@@ -18,7 +18,7 @@ public record ArticleWithCommentsResponse(
         String email,
         String nickname,
         Set<ArticleCommentResponse> articleCommentsResponse
-) implements Serializable {
+) {
 
     public static ArticleWithCommentsResponse of(Long id, String title, String content, String hashtag, LocalDateTime createdAt, String email, String nickname, Set<ArticleCommentResponse> articleCommentResponses) {
         return new ArticleWithCommentsResponse(id, title, content, hashtag, createdAt, email, nickname, articleCommentResponses);
