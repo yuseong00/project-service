@@ -7,7 +7,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public record ArticleWithCommentsDto(
+public record ArticleWithCommentsDto(  //게시글과 댓글을 모두 포함한 dto
         Long id,
         UserAccountDto userAccountDto,
         Set<ArticleCommentDto> articleCommentDtos,

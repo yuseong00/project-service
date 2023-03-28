@@ -18,7 +18,7 @@ public class ArticleCommentService {
 
 
     @Transactional(readOnly = true)
-    public List<ArticleCommentDto> searchArticleComment(Long articleId) {
+    public List<ArticleCommentDto> searchArticleComments(Long articleId) {
         return List.of();
     }
 
@@ -31,5 +31,7 @@ public class ArticleCommentService {
 
     public void deleteArticleComment(Long articleCommentId) {
     }
+
+
 }
 
