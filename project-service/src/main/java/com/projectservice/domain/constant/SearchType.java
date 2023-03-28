@@ -1,4 +1,4 @@
-package com.projectservice.domain.Type;
+package com.projectservice.domain.constant;
 
 import lombok.Getter;
 
@@ -15,4 +15,4 @@ public enum SearchType {
         this.description = description;
     }
 
-    }
+}

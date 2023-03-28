@@ -1,35 +1,40 @@
 package com.projectservice.controller;
 
 import com.fastcampus.projectboard.config.SecurityConfig;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.context.annotation.Import;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+@DisplayName("View 컨트롤러 - 인증")
 @Import(SecurityConfig.class)
-@WebMvcTest(MainController.class)
-class MainControllerTest {
+@WebMvcTest(Void.class)
+public class AuthControllerTest {
 
     private final MockMvc mvc;
 
-    public MainControllerTest(@Autowired MockMvc mvc) {
+    public AuthControllerTest(@Autowired MockMvc mvc) {
         this.mvc = mvc;
     }
 
+
+    @DisplayName("[view][GET] 로그인 페이지 - 정상 호출")
     @Test
-    void givenNothing_whenRequestingRootPage_thenRedirectsToArticlesPage() throws Exception {
+    public void givenNothing_whenTryingToLogIn_thenReturnsLogInView() throws Exception {
         // Given
 
         // When & Then
-        mvc.perform(get("/"))
+        mvc.perform(get("/login"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("forward:/articles"))
-                .andExpect(forwardedUrl("/articles"))
+                .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
                 .andDo(MockMvcResultHandlers.print());
     }
 

@@ -1,7 +1,7 @@
 package com.projectservice.repository;
 
+
 import com.projectservice.domain.ArticleComment;
-import com.projectservice.domain.QArticle;
 import com.projectservice.domain.QArticleComment;
 import com.querydsl.core.types.dsl.DateTimeExpression;
 import com.querydsl.core.types.dsl.StringExpression;
@@ -15,20 +15,19 @@ import java.util.List;
 
 @RepositoryRestResource
 public interface ArticleCommentRepository extends
-        JpaRepository<ArticleComment,Long> ,
+        JpaRepository<ArticleComment, Long>,
         QuerydslPredicateExecutor<ArticleComment>,
-        QuerydslBinderCustomizer<QArticleComment>
-{
+        QuerydslBinderCustomizer<QArticleComment> {
 
     List<ArticleComment> findByArticle_Id(Long articleId);
-
 
     @Override
     default void customize(QuerydslBindings bindings, QArticleComment root) {
         bindings.excludeUnlistedProperties(true);
-        bindings.including( root.content,  root.createdAt, root.createdBy);
+        bindings.including(root.content, root.createdAt, root.createdBy);
         bindings.bind(root.content).first(StringExpression::containsIgnoreCase);
         bindings.bind(root.createdAt).first(DateTimeExpression::eq);
         bindings.bind(root.createdBy).first(StringExpression::containsIgnoreCase);
     }
+
 }

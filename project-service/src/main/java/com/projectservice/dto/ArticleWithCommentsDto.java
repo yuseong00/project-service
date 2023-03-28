@@ -1,5 +1,7 @@
 package com.projectservice.dto;
 
+
+
 import com.projectservice.domain.Article;
 
 import java.time.LocalDateTime;
@@ -7,7 +9,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public record ArticleWithCommentsDto(  //게시글과 댓글을 모두 포함한 dto
+public record ArticleWithCommentsDto(
         Long id,
         UserAccountDto userAccountDto,
         Set<ArticleCommentDto> articleCommentDtos,
