@@ -25,6 +25,8 @@ public record ArticleCommentResponse(
             nickname = dto.userAccountDto().userId();
         }
 
+
+
         return new ArticleCommentResponse(
                 dto.id(),
                 dto.content(),
