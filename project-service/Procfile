@@ -1,1 +1,1 @@
-web: java -Dspring.server.port=8080 -Dspring.profiles.active=heroku -jar build/libs/project-service-v1.1.jar
+web: java $JAVA_OPTS -Dserver.port=$PORT -Dspring.profiles.active=heroku -jar build/libs/project-service-v1.1.jar
