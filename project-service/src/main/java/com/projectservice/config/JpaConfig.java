@@ -15,7 +15,7 @@ import java.util.Optional;
 @Configuration
 public class JpaConfig {
 
-    @Bean    // 수정?한 유저정보반환
+    @Bean    // auditingfield를 통해 필드값을 사용한 유저정보반환
     public AuditorAware<String> auditorAware() {
         return () -> Optional.ofNullable(SecurityContextHolder.getContext())
                 .map(SecurityContext::getAuthentication)
