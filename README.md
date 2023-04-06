@@ -23,5 +23,5 @@ Spring Boot
 * Spring Configuration Processoreta1
 * Heroku
 
-##데모페이지 
+## 데모페이지 
 *  https://project-board-uno.herokuapp.com/
